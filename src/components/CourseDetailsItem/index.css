@@ -1,0 +1,17 @@
+.success-view-container {
+  margin: 50px 10px 10px 150px;
+  display: flex;
+  justify-content: flex-start;
+  box-shadow: 0px 4px 16px 0px #bfbfbf;
+  padding: 0px;
+  width: fit-content;
+}
+
+.course-details-image {
+  width: 400px;
+  margin-right: 20px;
+}
+
+.course-details-description {
+  width: 700px;
+}

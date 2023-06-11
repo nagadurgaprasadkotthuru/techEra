@@ -1,0 +1,26 @@
+.home-bg-container {
+}
+
+.loader-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-view-container {
+  padding-left: 80px;
+}
+
+.heading {
+  color: #1e293b;
+  font-family: 'Roboto';
+}
+
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-left: 60px;
+}

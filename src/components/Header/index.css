@@ -1,0 +1,14 @@
+.navbar {
+  padding: 20px 20px 20px 80px;
+  background-color: #f1f5f9;
+}
+
+.logo {
+  width: 160px;
+  cursor: pointer;
+  outline: none;
+}
+
+.nav-link {
+  text-decoration: none;
+}
