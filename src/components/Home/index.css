@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.success-view-container {
+.success-view-container1 {
   padding-left: 80px;
 }
 
@@ -23,4 +23,23 @@
   flex-wrap: wrap;
   align-items: center;
   padding-left: 60px;
+}
+
+.failure-view-container {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.retry-button {
+  font-family: 'Roboto';
+  color: #ffffff;
+  background-color: #4656a1;
+  border: 0px;
+  border-radius: 4px;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+  outline: none;
 }

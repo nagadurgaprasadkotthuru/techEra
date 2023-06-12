@@ -27,19 +27,46 @@ class CourseDetailsItem extends Component {
     const {id} = params
     const requestUrl = `https://apis.ccbp.in/te/courses/${id}`
     const response = await fetch(requestUrl)
-    const data = await response.json()
-    const courseDetails = data.course_details
-    const formattedCourseDetails = {
-      id: courseDetails.id,
-      imageUrl: courseDetails.image_url,
-      description: courseDetails.description,
-      name: courseDetails.name,
+    if (response.ok) {
+      const data = await response.json()
+      const courseDetails = data.course_details
+      const formattedCourseDetails = {
+        id: courseDetails.id,
+        imageUrl: courseDetails.image_url,
+        description: courseDetails.description,
+        name: courseDetails.name,
+      }
+      this.setState({
+        courseDetails: formattedCourseDetails,
+        apiStatus: apiStatusConstants.success,
+      })
+    } else {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
+      })
     }
-    this.setState({
-      courseDetails: formattedCourseDetails,
-      apiStatus: apiStatusConstants.success,
-    })
   }
+
+  renderFailureView = () => (
+    <div className="failure-view-container">
+      <img
+        className="failure-img"
+        alt="failure view"
+        src="https://assets.ccbp.in/frontend/react-js/tech-era/failure-img.png"
+      />
+      <h1 className="failure-heading">Oops! Something Went Wrong</h1>
+      <p className="failure-description">
+        We cannot seem to find the page you are looking for.
+      </p>
+      <button
+        className="retry-button"
+        type="button"
+        onClick={this.detailsOfCourse}
+      >
+        Retry
+      </button>
+    </div>
+  )
 
   renderLoaderView = () => (
     <div data-testid="loader" className="loader-container">
@@ -68,6 +95,8 @@ class CourseDetailsItem extends Component {
         return this.renderLoaderView()
       case apiStatusConstants.success:
         return this.renderSuccessView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
       default:
         return null
     }
